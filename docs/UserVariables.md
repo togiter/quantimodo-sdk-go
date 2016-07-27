@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **OnsetDelay** | **int32** | onsetDelay | [optional] [default to null]
 **ExperimentStartTime** | **string** | Earliest measurement startTime that should be used in analysis in ISO format | [optional] [default to null]
 **ExperimentEndTime** | **string** | Latest measurement startTime that should be used in analysis in ISO format | [optional] [default to null]
+**Alias** | **string** | User-defined display alias for variable name | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

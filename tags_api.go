@@ -79,8 +79,7 @@ func (a TagsApi) V1UserTagsDeletePost(taggedVariableId int32, tagVariableId int3
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -145,8 +144,7 @@ func (a TagsApi) V1UserTagsPost(body UserTag, accessToken string) (*CommonRespon
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

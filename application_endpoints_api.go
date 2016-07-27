@@ -82,16 +82,14 @@ func (a ApplicationEndpointsApi) V2ApplicationConnectionsGet(accessToken string,
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -166,16 +164,14 @@ func (a ApplicationEndpointsApi) V2ApplicationCredentialsGet(accessToken string,
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -258,16 +254,14 @@ func (a ApplicationEndpointsApi) V2ApplicationMeasurementsGet(accessToken string
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -348,16 +342,14 @@ func (a ApplicationEndpointsApi) V2ApplicationTrackingRemindersGet(accessToken s
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -427,16 +419,14 @@ func (a ApplicationEndpointsApi) V2ApplicationUpdatesGet(accessToken string, con
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -519,16 +509,14 @@ func (a ApplicationEndpointsApi) V2ApplicationUserVariableRelationshipsGet(acces
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -657,16 +645,14 @@ func (a ApplicationEndpointsApi) V2ApplicationUserVariablesGet(accessToken strin
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -785,16 +771,14 @@ func (a ApplicationEndpointsApi) V2ApplicationVariableUserSourcesGet(accessToken
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -867,16 +851,14 @@ func (a ApplicationEndpointsApi) V2ApplicationVotesGet(accessToken string, clien
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]

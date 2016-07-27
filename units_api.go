@@ -69,8 +69,7 @@ func (a UnitsApi) V1UnitCategoriesGet() (*UnitCategory, *APIResponse, error) {
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -132,8 +131,7 @@ func (a UnitsApi) V1UnitsGet(accessToken string, id int32, unitName string, abbr
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -200,8 +198,7 @@ func (a UnitsApi) V1UnitsVariableGet(accessToken string, unitName string, abbrev
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1MeasurementsGet**
-> Measurement V1MeasurementsGet($accessToken, $variableName, $variableCategoryName, $source, $value, $lastUpdated, $unit, $startTime, $createdAt, $updatedAt, $endTime, $groupingWidth, $groupingTimezone, $limit, $offset, $sort)
+> Measurement V1MeasurementsGet($accessToken, $id, $variableName, $variableCategoryName, $source, $value, $lastUpdated, $unit, $startTime, $createdAt, $updatedAt, $endTime, $groupingWidth, $groupingTimezone, $limit, $offset, $sort)
 
 Get measurements for this user
 
@@ -156,6 +156,7 @@ Measurements are any value that can be recorded like daily steps, a mood rating,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accessToken** | **string**| User&#39;s OAuth2 access token | [optional] 
+ **id** | **int32**| Measurement id | [optional] 
  **variableName** | **string**| Name of the variable you want measurements for | [optional] 
  **variableCategoryName** | **string**| Name of the variable category you want measurements for | [optional] 
  **source** | **string**| Name of the source you want measurements for (supports exact name match only) | [optional] 

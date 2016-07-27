@@ -53,4 +53,7 @@ type UserVariables struct {
 
 	// Latest measurement startTime that should be used in analysis in ISO format
 	ExperimentEndTime string `json:"experimentEndTime,omitempty"`
+
+	// User-defined display alias for variable name
+	Alias string `json:"alias,omitempty"`
 }

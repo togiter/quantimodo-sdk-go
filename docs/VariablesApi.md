@@ -8,14 +8,14 @@ Method | HTTP request | Description
 [**V1PublicVariablesSearchSearchGet**](VariablesApi.md#V1PublicVariablesSearchSearchGet) | **Get** /v1/public/variables/search/{search} | Get top 5 PUBLIC variables with the most correlations
 [**V1UserVariablesPost**](VariablesApi.md#V1UserVariablesPost) | **Post** /v1/userVariables | Update User Settings for a Variable
 [**V1VariableCategoriesGet**](VariablesApi.md#V1VariableCategoriesGet) | **Get** /v1/variableCategories | Variable categories
-[**V1VariablesGet**](VariablesApi.md#V1VariablesGet) | **Get** /v1/variables | Get variables by the category name
+[**V1VariablesGet**](VariablesApi.md#V1VariablesGet) | **Get** /v1/variables | Get variables with user&#39;s settings
 [**V1VariablesPost**](VariablesApi.md#V1VariablesPost) | **Post** /v1/variables | Create Variables
 [**V1VariablesSearchSearchGet**](VariablesApi.md#V1VariablesSearchSearchGet) | **Get** /v1/variables/search/{search} | Get variables by search query
 [**V1VariablesVariableNameGet**](VariablesApi.md#V1VariablesVariableNameGet) | **Get** /v1/variables/{variableName} | Get info about a variable
 
 
 # **V1PublicVariablesGet**
-> Variable V1PublicVariablesGet()
+> Variable V1PublicVariablesGet($accessToken, $id, $userId, $category, $name, $lastUpdated, $source, $latestMeasurementTime, $numberOfMeasurements, $lastSource, $limit, $offset, $sort)
 
 Get public variables
 
@@ -23,7 +23,22 @@ This endpoint retrieves an array of all public variables. Public variables are t
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accessToken** | **string**| User&#39;s OAuth2 access token | [optional] 
+ **id** | **int32**| Common variable id | [optional] 
+ **userId** | **int32**| User id | [optional] 
+ **category** | **string**| Filter data by category | [optional] 
+ **name** | **string**| Original name of the variable (supports exact name match only) | [optional] 
+ **lastUpdated** | **string**| Filter by the last time any of the properties of the variable were changed. Uses UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot; | [optional] 
+ **source** | **string**| The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here | [optional] 
+ **latestMeasurementTime** | **string**| Filter variables based on the last time a measurement for them was created or updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot; | [optional] 
+ **numberOfMeasurements** | **string**| Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. | [optional] 
+ **lastSource** | **string**| Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only) | [optional] 
+ **limit** | **int32**| The LIMIT is used to limit the number of results returned. So if you have 1000 results, but only want to the first 10, you would set this to 10 and offset to 0. | [optional] 
+ **offset** | **int32**| Now suppose you wanted to show results 11-20. You&#39;d set the offset to 10 and the limit to 10. | [optional] 
+ **sort** | **int32**| Sort by given field. If the field is prefixed with &#x60;-, it will sort in descending order. | [optional] 
 
 ### Return type
 
@@ -135,9 +150,9 @@ This endpoint does not need any parameter.
 # **V1VariablesGet**
 > Variable V1VariablesGet($accessToken, $id, $userId, $category, $name, $lastUpdated, $source, $latestMeasurementTime, $numberOfMeasurements, $lastSource, $limit, $offset, $sort)
 
-Get variables by the category name
+Get variables with user's settings
 
-Get variables by the category name. <br>Supported filter parameters:<br><ul><li><b>name</b> - Original name of the variable (supports exact name match only)</li><li><b>lastUpdated</b> - Filter by the last time any of the properties of the variable were changed. Uses UTC format \"YYYY-MM-DDThh:mm:ss\"</li><li><b>source</b> - The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here</li><li><b>latestMeasurementTime</b> - Filter variables based on the last time a measurement for them was created or updated in the UTC format \"YYYY-MM-DDThh:mm:ss\"</li><li><b>numberOfMeasurements</b> - Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.</li><li><b>lastSource</b> - Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only)</li></ul><br>
+Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
 
 
 ### Parameters

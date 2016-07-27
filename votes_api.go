@@ -75,8 +75,7 @@ func (a VotesApi) V1VotesDeletePost(body VoteDelete, accessToken string) (*Commo
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -143,8 +142,7 @@ func (a VotesApi) V1VotesPost(body PostVote, accessToken string) (*CommonRespons
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

@@ -71,8 +71,7 @@ func (a MeasurementsApi) V1MeasurementSourcesGet() (*MeasurementSource, *APIResp
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -135,8 +134,7 @@ func (a MeasurementsApi) V1MeasurementSourcesPost(body MeasurementSource, access
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -211,8 +209,7 @@ func (a MeasurementsApi) V1MeasurementsDailyGet(variableName string, accessToken
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -284,8 +281,7 @@ func (a MeasurementsApi) V1MeasurementsDeletePost(body MeasurementDelete) (*Comm
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -331,6 +327,7 @@ func (a MeasurementsApi) V1MeasurementsDeletePost(body MeasurementDelete) (*Comm
  * Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten. &lt;br&gt;Supported filter parameters:&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;value&lt;/b&gt; - Value of measurement&lt;/li&gt;&lt;li&gt;&lt;b&gt;lastUpdated&lt;/b&gt; - The time that this measurement was created or last updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;
  *
  * @param accessToken User&#39;s OAuth2 access token
+ * @param id Measurement id
  * @param variableName Name of the variable you want measurements for
  * @param variableCategoryName Name of the variable category you want measurements for
  * @param source Name of the source you want measurements for (supports exact name match only)
@@ -348,7 +345,7 @@ func (a MeasurementsApi) V1MeasurementsDeletePost(body MeasurementDelete) (*Comm
  * @param sort Sort by given field. If the field is prefixed with &#x60;-, it will sort in descending order.
  * @return *Measurement
  */
-func (a MeasurementsApi) V1MeasurementsGet(accessToken string, variableName string, variableCategoryName string, source string, value string, lastUpdated string, unit string, startTime string, createdAt string, updatedAt string, endTime string, groupingWidth int32, groupingTimezone string, limit int32, offset int32, sort int32) (*Measurement, *APIResponse, error) {
+func (a MeasurementsApi) V1MeasurementsGet(accessToken string, id int32, variableName string, variableCategoryName string, source string, value string, lastUpdated string, unit string, startTime string, createdAt string, updatedAt string, endTime string, groupingWidth int32, groupingTimezone string, limit int32, offset int32, sort int32) (*Measurement, *APIResponse, error) {
 
 	var httpMethod = "Get"
 	// create path and map variables
@@ -361,8 +358,7 @@ func (a MeasurementsApi) V1MeasurementsGet(accessToken string, variableName stri
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -372,6 +368,7 @@ func (a MeasurementsApi) V1MeasurementsGet(accessToken string, variableName stri
 		headerParams[key] = a.Configuration.DefaultHeader[key]
 	}
 		queryParams.Add("accessToken", a.Configuration.APIClient.ParameterToString(accessToken, ""))
+			queryParams.Add("id", a.Configuration.APIClient.ParameterToString(id, ""))
 			queryParams.Add("variableName", a.Configuration.APIClient.ParameterToString(variableName, ""))
 			queryParams.Add("variableCategoryName", a.Configuration.APIClient.ParameterToString(variableCategoryName, ""))
 			queryParams.Add("source", a.Configuration.APIClient.ParameterToString(source, ""))
@@ -441,8 +438,7 @@ func (a MeasurementsApi) V1MeasurementsPost(body MeasurementSet, accessToken str
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -505,8 +501,7 @@ func (a MeasurementsApi) V1MeasurementsRangeGet(sources string, user int32) (*Me
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -566,8 +561,7 @@ func (a MeasurementsApi) V2MeasurementsCsvGet(accessToken string) (**os.File, *A
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -632,8 +626,7 @@ func (a MeasurementsApi) V2MeasurementsIdDelete(id int32, accessToken string) (*
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -698,8 +691,7 @@ func (a MeasurementsApi) V2MeasurementsIdGet(id int32, accessToken string) (*Inl
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -765,8 +757,7 @@ func (a MeasurementsApi) V2MeasurementsIdPut(id int32, accessToken string, body 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -828,8 +819,7 @@ func (a MeasurementsApi) V2MeasurementsRequestCsvPost(accessToken string) (*int3
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -888,8 +878,7 @@ func (a MeasurementsApi) V2MeasurementsRequestPdfPost(accessToken string) (*int3
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -948,8 +937,7 @@ func (a MeasurementsApi) V2MeasurementsRequestXlsPost(accessToken string) (*int3
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

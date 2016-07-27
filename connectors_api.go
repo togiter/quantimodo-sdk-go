@@ -70,16 +70,14 @@ func (a ConnectorsApi) V1ConnectJsGet(accessToken string) (*APIResponse, error) 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -138,16 +136,14 @@ func (a ConnectorsApi) V1ConnectMobileGet(accessToken string) (*APIResponse, err
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
@@ -208,8 +204,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorConnectGet(connector string, accessT
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -289,8 +284,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorConnectInstructionsGet(connector str
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -384,8 +378,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorConnectParameterGet(connector string
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -455,8 +448,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorDisconnectGet(connector string) (*AP
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -520,8 +512,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorInfoGet(connector string, accessToke
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -586,8 +577,7 @@ func (a ConnectorsApi) V1ConnectorsConnectorUpdateGet(connector string, accessTo
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -645,8 +635,7 @@ func (a ConnectorsApi) V1ConnectorsListGet() ([]Connector, *APIResponse, error) 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

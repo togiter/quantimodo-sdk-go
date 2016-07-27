@@ -33,7 +33,6 @@ type Measurement struct {
 	// Start Time for the measurement event in ISO 8601
 	StartTime string `json:"startTime,omitempty"`
 
-	// Start Time for the measurement event in ISO 8601
 	HumanTime HumanTime `json:"humanTime,omitempty"`
 
 	// Converted measurement value in requested unit

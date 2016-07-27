@@ -76,8 +76,7 @@ func (a RemindersApi) V1TrackingReminderNotificationsGet(accessToken string, var
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -147,8 +146,7 @@ func (a RemindersApi) V1TrackingReminderNotificationsSkipPost(body TrackingRemin
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -215,8 +213,7 @@ func (a RemindersApi) V1TrackingReminderNotificationsSnoozePost(body TrackingRem
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -283,8 +280,7 @@ func (a RemindersApi) V1TrackingReminderNotificationsTrackPost(body TrackingRemi
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -351,8 +347,7 @@ func (a RemindersApi) V1TrackingRemindersDeletePost(body TrackingReminderDelete,
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -420,8 +415,7 @@ func (a RemindersApi) V1TrackingRemindersGet(accessToken string, variableCategor
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -487,8 +481,7 @@ func (a RemindersApi) V1TrackingRemindersPost(accessToken string, body TrackingR
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (quantimodo_oauth2) required
-
+	// authentication '(quantimodo_oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

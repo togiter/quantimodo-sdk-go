@@ -54,9 +54,22 @@ func NewVariablesApiWithBasePath(basePath string) *VariablesApi {
  * Get public variables
  * This endpoint retrieves an array of all public variables. Public variables are things like foods, medications, symptoms, conditions, and anything not unique to a particular user. For instance, a telephone number or name would not be a public variable.
  *
+ * @param accessToken User&#39;s OAuth2 access token
+ * @param id Common variable id
+ * @param userId User id
+ * @param category Filter data by category
+ * @param name Original name of the variable (supports exact name match only)
+ * @param lastUpdated Filter by the last time any of the properties of the variable were changed. Uses UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;
+ * @param source The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here
+ * @param latestMeasurementTime Filter variables based on the last time a measurement for them was created or updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;
+ * @param numberOfMeasurements Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.
+ * @param lastSource Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only)
+ * @param limit The LIMIT is used to limit the number of results returned. So if you have 1000 results, but only want to the first 10, you would set this to 10 and offset to 0.
+ * @param offset Now suppose you wanted to show results 11-20. You&#39;d set the offset to 10 and the limit to 10.
+ * @param sort Sort by given field. If the field is prefixed with &#x60;-, it will sort in descending order.
  * @return *Variable
  */
-func (a VariablesApi) V1PublicVariablesGet() (*Variable, *APIResponse, error) {
+func (a VariablesApi) V1PublicVariablesGet(accessToken string, id int32, userId int32, category string, name string, lastUpdated string, source string, latestMeasurementTime string, numberOfMeasurements string, lastSource string, limit int32, offset int32, sort int32) (*Variable, *APIResponse, error) {
 
 	var httpMethod = "Get"
 	// create path and map variables
@@ -69,8 +82,7 @@ func (a VariablesApi) V1PublicVariablesGet() (*Variable, *APIResponse, error) {
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -79,7 +91,20 @@ func (a VariablesApi) V1PublicVariablesGet() (*Variable, *APIResponse, error) {
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]
 	}
-
+		queryParams.Add("accessToken", a.Configuration.APIClient.ParameterToString(accessToken, ""))
+			queryParams.Add("id", a.Configuration.APIClient.ParameterToString(id, ""))
+			queryParams.Add("userId", a.Configuration.APIClient.ParameterToString(userId, ""))
+			queryParams.Add("category", a.Configuration.APIClient.ParameterToString(category, ""))
+			queryParams.Add("name", a.Configuration.APIClient.ParameterToString(name, ""))
+			queryParams.Add("lastUpdated", a.Configuration.APIClient.ParameterToString(lastUpdated, ""))
+			queryParams.Add("source", a.Configuration.APIClient.ParameterToString(source, ""))
+			queryParams.Add("latestMeasurementTime", a.Configuration.APIClient.ParameterToString(latestMeasurementTime, ""))
+			queryParams.Add("numberOfMeasurements", a.Configuration.APIClient.ParameterToString(numberOfMeasurements, ""))
+			queryParams.Add("lastSource", a.Configuration.APIClient.ParameterToString(lastSource, ""))
+			queryParams.Add("limit", a.Configuration.APIClient.ParameterToString(limit, ""))
+			queryParams.Add("offset", a.Configuration.APIClient.ParameterToString(offset, ""))
+			queryParams.Add("sort", a.Configuration.APIClient.ParameterToString(sort, ""))
+	
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -141,8 +166,7 @@ func (a VariablesApi) V1PublicVariablesSearchSearchGet(search string, accessToke
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -212,8 +236,7 @@ func (a VariablesApi) V1UserVariablesPost(userVariables UserVariables) (*APIResp
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -273,8 +296,7 @@ func (a VariablesApi) V1VariableCategoriesGet() ([]VariableCategory, *APIRespons
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -313,8 +335,8 @@ func (a VariablesApi) V1VariableCategoriesGet() ([]VariableCategory, *APIRespons
 }
 
 /**
- * Get variables by the category name
- * Get variables by the category name. &lt;br&gt;Supported filter parameters:&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;name&lt;/b&gt; - Original name of the variable (supports exact name match only)&lt;/li&gt;&lt;li&gt;&lt;b&gt;lastUpdated&lt;/b&gt; - Filter by the last time any of the properties of the variable were changed. Uses UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;li&gt;&lt;b&gt;source&lt;/b&gt; - The name of the data source that created the variable (supports exact name match only). So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here&lt;/li&gt;&lt;li&gt;&lt;b&gt;latestMeasurementTime&lt;/b&gt; - Filter variables based on the last time a measurement for them was created or updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;li&gt;&lt;b&gt;numberOfMeasurements&lt;/b&gt; - Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity.&lt;/li&gt;&lt;li&gt;&lt;b&gt;lastSource&lt;/b&gt; - Limit variables to those which measurements were last submitted by a specific source. So if you have a client application and you only want variables that were last updated by your app, you can include the name of your app here. (supports exact name match only)&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;
+ * Get variables with user&#39;s settings
+ * Get variables for which the user has measurements. If the user has specified variable settings, these are provided instead of the common variable defaults.
  *
  * @param accessToken User&#39;s OAuth2 access token
  * @param id Common variable id
@@ -344,13 +366,12 @@ func (a VariablesApi) V1VariablesGet(accessToken string, id int32, userId int32,
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (basicAuth) required
-
+	}
+	// authentication '(basicAuth)' required
 	// http basic authentication required
 	if a.Configuration.Username != "" || a.Configuration.Password != ""{
 		headerParams["Authorization"] =  "Basic " + a.Configuration.GetBasicAuthEncodedString()
@@ -426,8 +447,7 @@ func (a VariablesApi) V1VariablesPost(body VariablesNew, accessToken string) (*A
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -503,8 +523,7 @@ func (a VariablesApi) V1VariablesSearchSearchGet(search string, accessToken stri
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -577,8 +596,7 @@ func (a VariablesApi) V1VariablesVariableNameGet(variableName string, accessToke
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken

@@ -91,7 +91,7 @@ void (empty response body)
 
 Get correlations
 
-Get correlations.<br>Supported filter parameters:<br><ul><li><b>correlationCoefficient</b> - Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action</li><li><b>onsetDelay</b> - The number of seconds which pass following a cause measurement before an effect would likely be observed.</li><li><b>durationOfAction</b> - The time in seconds over which the cause would be expected to exert a measurable effect. We have selected a default value for each variable. This default value may be replaced by a user specified by adjusting their variable user settings.</li><li><b>lastUpdated</b> - The time that this measurement was last updated in the UTC format \"YYYY-MM-DDThh:mm:ss\"</li></ul><br>
+Get correlations based on data from a single user.
 
 
 ### Parameters
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1VariablesVariableNameEffectsGet**
-> []Correlation V1VariablesVariableNameEffectsGet($variableName, $accessToken)
+> []Correlation V1VariablesVariableNameEffectsGet($variableName, $accessToken, $correlationCoefficient)
 
 Search user correlations for a given cause
 
@@ -266,6 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **string**| Cause variable name | 
  **accessToken** | **string**| User&#39;s OAuth2 access token | [optional] 
+ **correlationCoefficient** | **string**| You can use this to get effects with correlations greater than or less than 0 | [optional] 
 
 ### Return type
 
@@ -283,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **V1VariablesVariableNamePublicCausesGet**
-> []Correlation V1VariablesVariableNamePublicCausesGet($variableName, $accessToken)
+> []Correlation V1VariablesVariableNamePublicCausesGet($variableName, $accessToken, $correlationCoefficient)
 
 Search public correlations for a given effect
 
@@ -296,6 +297,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableName** | **string**| Effect variable name | 
  **accessToken** | **string**| User&#39;s OAuth2 access token | [optional] 
+ **correlationCoefficient** | **string**| You can use this to get causes with correlations greater than or less than 0 | [optional] 
 
 ### Return type
 

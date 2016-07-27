@@ -81,16 +81,14 @@ func (a OrganizationsApi) V1OrganizationsOrganizationIdUsersPost(organizationId 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}	// authentication (internalApiKey) required
-
+	}
+	// authentication '(internalApiKey)' required
 	// set key with prefix in header
 	headerParams["api_key"] = a.Configuration.GetAPIKeyWithPrefix("api_key")
-
 	// add default headers if any
 	for key := range a.Configuration.DefaultHeader {
 		headerParams[key] = a.Configuration.DefaultHeader[key]

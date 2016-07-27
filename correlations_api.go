@@ -79,8 +79,7 @@ func (a CorrelationsApi) V1AggregatedCorrelationsGet(accessToken string, effect 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -153,8 +152,7 @@ func (a CorrelationsApi) V1AggregatedCorrelationsPost(body PostCorrelation, acce
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -198,7 +196,7 @@ func (a CorrelationsApi) V1AggregatedCorrelationsPost(body PostCorrelation, acce
 
 /**
  * Get correlations
- * Get correlations.&lt;br&gt;Supported filter parameters:&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;correlationCoefficient&lt;/b&gt; - Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action&lt;/li&gt;&lt;li&gt;&lt;b&gt;onsetDelay&lt;/b&gt; - The number of seconds which pass following a cause measurement before an effect would likely be observed.&lt;/li&gt;&lt;li&gt;&lt;b&gt;durationOfAction&lt;/b&gt; - The time in seconds over which the cause would be expected to exert a measurable effect. We have selected a default value for each variable. This default value may be replaced by a user specified by adjusting their variable user settings.&lt;/li&gt;&lt;li&gt;&lt;b&gt;lastUpdated&lt;/b&gt; - The time that this measurement was last updated in the UTC format \&quot;YYYY-MM-DDThh:mm:ss\&quot;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;
+ * Get correlations based on data from a single user.
  *
  * @param accessToken User&#39;s OAuth2 access token
  * @param effect ORIGINAL variable name of the effect variable for which the user desires correlations
@@ -225,8 +223,7 @@ func (a CorrelationsApi) V1CorrelationsGet(accessToken string, effect string, ca
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -318,8 +315,7 @@ func (a CorrelationsApi) V1OrganizationsOrganizationIdUsersUserIdVariablesVariab
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -404,8 +400,7 @@ func (a CorrelationsApi) V1OrganizationsOrganizationIdUsersUserIdVariablesVariab
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -477,8 +472,7 @@ func (a CorrelationsApi) V1PublicCorrelationsSearchSearchGet(search string, effe
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -543,8 +537,7 @@ func (a CorrelationsApi) V1VariablesVariableNameCausesGet(variableName string) (
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -588,9 +581,10 @@ func (a CorrelationsApi) V1VariablesVariableNameCausesGet(variableName string) (
  *
  * @param variableName Cause variable name
  * @param accessToken User&#39;s OAuth2 access token
+ * @param correlationCoefficient You can use this to get effects with correlations greater than or less than 0
  * @return []Correlation
  */
-func (a CorrelationsApi) V1VariablesVariableNameEffectsGet(variableName string, accessToken string) ([]Correlation, *APIResponse, error) {
+func (a CorrelationsApi) V1VariablesVariableNameEffectsGet(variableName string, accessToken string, correlationCoefficient string) ([]Correlation, *APIResponse, error) {
 
 	var httpMethod = "Get"
 	// create path and map variables
@@ -608,8 +602,7 @@ func (a CorrelationsApi) V1VariablesVariableNameEffectsGet(variableName string, 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -619,6 +612,7 @@ func (a CorrelationsApi) V1VariablesVariableNameEffectsGet(variableName string, 
 		headerParams[key] = a.Configuration.DefaultHeader[key]
 	}
 		queryParams.Add("accessToken", a.Configuration.APIClient.ParameterToString(accessToken, ""))
+			queryParams.Add("correlationCoefficient", a.Configuration.APIClient.ParameterToString(correlationCoefficient, ""))
 	
 
 	// to determine the Content-Type header
@@ -654,9 +648,10 @@ func (a CorrelationsApi) V1VariablesVariableNameEffectsGet(variableName string, 
  *
  * @param variableName Effect variable name
  * @param accessToken User&#39;s OAuth2 access token
+ * @param correlationCoefficient You can use this to get causes with correlations greater than or less than 0
  * @return []Correlation
  */
-func (a CorrelationsApi) V1VariablesVariableNamePublicCausesGet(variableName string, accessToken string) ([]Correlation, *APIResponse, error) {
+func (a CorrelationsApi) V1VariablesVariableNamePublicCausesGet(variableName string, accessToken string, correlationCoefficient string) ([]Correlation, *APIResponse, error) {
 
 	var httpMethod = "Get"
 	// create path and map variables
@@ -674,8 +669,7 @@ func (a CorrelationsApi) V1VariablesVariableNamePublicCausesGet(variableName str
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -685,6 +679,7 @@ func (a CorrelationsApi) V1VariablesVariableNamePublicCausesGet(variableName str
 		headerParams[key] = a.Configuration.DefaultHeader[key]
 	}
 		queryParams.Add("accessToken", a.Configuration.APIClient.ParameterToString(accessToken, ""))
+			queryParams.Add("correlationCoefficient", a.Configuration.APIClient.ParameterToString(correlationCoefficient, ""))
 	
 
 	// to determine the Content-Type header
@@ -740,8 +735,7 @@ func (a CorrelationsApi) V1VariablesVariableNamePublicEffectsGet(variableName st
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -805,8 +799,7 @@ func (a CorrelationsApi) V1VotesDeletePost(body VoteDelete, accessToken string) 
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
@@ -873,8 +866,7 @@ func (a CorrelationsApi) V1VotesPost(body PostVote, accessToken string) (*Common
 	var postBody interface{}
 	var fileName string
 	var fileBytes []byte
-	// authentication (oauth2) required
-
+	// authentication '(oauth2)' required
 	// oauth required
 	if a.Configuration.AccessToken != ""{
 		headerParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
